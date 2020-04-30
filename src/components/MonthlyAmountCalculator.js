@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import DollarInput from "./DollarInput";
 import MonthInput from "./MonthInput";
-import { getDefaultDate, getFormattedDate } from "./utils";
+import { getDefaultDate, getFormattedDate, getFormattedNum } from "./utils";
 import CalculationResult from "./CalculationResult";
 
 
@@ -17,13 +17,13 @@ const MonthlyAmountCalculator = () => {
     const monthDiff = yearsDiff * 12 + (saveUntil.getMonth() - currentDate.getMonth());
     const accumulated = monthlySaving * monthDiff
 
-    setSavingPlan([accumulated, monthlySaving, getFormattedDate(saveUntil)]);
+    setSavingPlan([getFormattedNum(accumulated), getFormattedNum(monthlySaving), getFormattedDate(saveUntil)]);
   };
 
   return (
     <>
       <DollarInput label="Monthly amount" value={monthlySaving} setValue={setMonthlySaving} />
-      <MonthInput label="Save until" date={saveUntil} setDate={setSaveUntil} />
+      <MonthInput label="Save until" date={saveUntil} setDate={setSaveUntil} onlyFuture={true} />
       {savingPlan &&
         <CalculationResult label="Total amount" value={savingPlan[0]}>
           You are saving <b>${savingPlan[1]} monthly</b> to save <b>${savingPlan[0]}</b> by <b>{savingPlan[2]}</b>.

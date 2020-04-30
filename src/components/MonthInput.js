@@ -1,11 +1,14 @@
 import React  from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
-import { getFormattedDate } from "./utils";
+import { getFormattedDate, isSameMonth } from "./utils";
 
 
-const MonthInput = ({ date, setDate, label }) =>  {
+const MonthInput = ({ date, setDate, label, onlyFuture }) =>  {
   const shiftMonth = shift => {
     const newDate = new Date(date.getFullYear(), date.getMonth() + shift);
+    if (onlyFuture && isSameMonth(newDate)) {
+      return;
+    }
     setDate(newDate)
   };
 

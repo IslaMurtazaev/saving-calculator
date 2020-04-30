@@ -10,6 +10,14 @@ export const getDefaultDate = () => {
   return currentDate;
 };
 
+export const isSameMonth = date => {
+  const currentDate = new Date();
+  const yearDiff = date.getFullYear() - currentDate.getFullYear();
+  const monthDiff = date.getMonth() - currentDate.getMonth();
+
+  return yearDiff < 1 && monthDiff < 1;
+};
+
 export const getFormattedNum = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 export const stripCommas = num => num.replace(/,/g, "");
