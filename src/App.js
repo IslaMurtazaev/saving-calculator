@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TotalAmountCalculator from "./components/TotalAmountCalculator";
+import MonthlyAmountCalculator from "./components/MonthlyAmountCalculator";
+import {Card, Col, Container, Row} from "react-bootstrap";
 
-function App() {
+const App = () => {
+  const [byTotalAmount, switchMode] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid>
+      <Row className="justify-content-md-center">
+        <Col lg="4" className="calculator-col nopadding">
+          <header className="navbar">
+            Let's plan your saving goal
+          </header>
+          <Card className="calculator">
+            <Card.Body>
+              <Card.Title className="calculator-title">Savings calculator</Card.Title>
+              <div>
+                <label className="switch mr-2">
+                  <input onChange={() => switchMode(!byTotalAmount)} checked={byTotalAmount} type="checkbox"/>
+                  <span className="slider round" />
+                </label>
+                <span>Calculate by {byTotalAmount ? "total amount" : "monthly saving"}</span>
+              </div>
+              {byTotalAmount ? <TotalAmountCalculator /> : <MonthlyAmountCalculator />}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
