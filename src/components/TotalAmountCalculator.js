@@ -20,11 +20,9 @@ const TotalAmountCalculator = () => {
   };
 
   return (
-    <div>
-      <div>
-        <DollarInput label="Total amount" value={goal} setValue={setGoal} />
-        <MonthInput label="Reach goal by" date={reachBy} setDate={setReachBy} />
-      </div>
+    <>
+      <DollarInput label="Total amount" value={goal} setValue={setGoal} />
+      <MonthInput label="Reach goal by" date={reachBy} setDate={setReachBy} />
       {savingPlan &&
         <CalculationResult label="Monthly Amount" value={savingPlan[0]}>
           You are planning <b>{savingPlan[1]} monthly</b> deposits to reach your <b>${savingPlan[2]}</b> goal
@@ -32,7 +30,7 @@ const TotalAmountCalculator = () => {
         </CalculationResult>
       }
       <Button block className="mt-4" onClick={calculateSavingPlan}>Finish</Button>
-    </div>
+    </>
   );
 };
 

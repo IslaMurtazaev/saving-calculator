@@ -8,7 +8,7 @@ You will build a savings calculator that can become one of Mini Apps in our plat
 
 ## Savings calculator
 
-![Savings calculator web app](savings-app.png)
+![Savings calculator web app](src/assets/images/savings-app.png)
 
 You will build a screen where the user can calculate their savings either by defining goal and saving monthly deposit for certain amount of time.
 

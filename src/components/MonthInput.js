@@ -10,7 +10,7 @@ const MonthInput = ({ date, setDate, label }) =>  {
   };
 
   return (
-    <div>
+    <>
       <label className="input-label">{label}</label>
       <InputGroup className="mb-3">
         <InputGroup.Prepend className="clickable" onClick={() => shiftMonth(-1)}>
@@ -21,8 +21,8 @@ const MonthInput = ({ date, setDate, label }) =>  {
           <InputGroup.Text>&gt;</InputGroup.Text>
         </InputGroup.Append>
       </InputGroup>
-    </div>
+    </>
   );
-}
+};
 
 export default MonthInput;

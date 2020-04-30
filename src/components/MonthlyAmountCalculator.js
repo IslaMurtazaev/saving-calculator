@@ -21,18 +21,16 @@ const MonthlyAmountCalculator = () => {
   };
 
   return (
-    <div>
-      <div>
-        <DollarInput label="Monthly amount" value={monthlySaving} setValue={setMonthlySaving} />
-        <MonthInput label="Save until" date={saveUntil} setDate={setSaveUntil} />
-      </div>
+    <>
+      <DollarInput label="Monthly amount" value={monthlySaving} setValue={setMonthlySaving} />
+      <MonthInput label="Save until" date={saveUntil} setDate={setSaveUntil} />
       {savingPlan &&
         <CalculationResult label="Total amount" value={savingPlan[0]}>
           You are saving <b>${savingPlan[1]} monthly</b> to save <b>${savingPlan[0]}</b> by <b>{savingPlan[2]}</b>.
         </CalculationResult>
       }
       <Button block className="mt-4" onClick={calculateSavingPlan}>Finish</Button>
-    </div>
+    </>
   );
 };
 

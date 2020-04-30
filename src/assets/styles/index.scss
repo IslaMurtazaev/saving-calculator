@@ -9,7 +9,7 @@ $theme-colors: (
 );
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
 
 html, body {
   height: 100%;
@@ -28,6 +28,14 @@ header {
   text-align: center;
   height: 82px;
   font-size: 18px;
+
+  img {
+    position: absolute;
+  }
+
+  span {
+    margin: auto;
+  }
 }
 
 .nopadding {
@@ -55,7 +63,6 @@ header {
   }
 
   .input-label {
-    margin-top: 15px;
     margin-bottom: 2px;
   }
 
@@ -99,7 +106,6 @@ header {
     }
 
     .card-footer {
-      padding: 0.25rem 1.25rem;
       border-top: 0;
       font-size: 10px;
       min-height: 48px;
@@ -123,12 +129,18 @@ header {
   border-left: 0 !important;
 }
 
+
+.switch-block {
+  display: flex;
+  align-items: center;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
-  display: inline-block;
   width: 38px;
   height: 18px;
+  margin-bottom: 0;
 }
 
 /* Hide default HTML checkbox */
