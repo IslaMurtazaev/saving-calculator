@@ -9,3 +9,7 @@ export const getDefaultDate = () => {
   currentDate.setFullYear(currentDate.getFullYear() + 2);
   return currentDate;
 };
+
+export const getFormattedNum = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+export const stripCommas = num => num.replace(/,/g, "");
