@@ -31,6 +31,6 @@ const App = () => {
       </Row>
     </Container>
   );
-}
+};
 
 export default App;
